@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HelpingHands | Dashboard</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Reset + Layout */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      background-color: #f9f9f9;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #0D5791;
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 1.5em;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar nav ul li a {
+      text-decoration: none;
+      font-size: 1.1em;
+      color: #ffffff;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .sidebar nav ul li a:hover {
+      background-color: #80adf0;
+      color: white;
+      transform: scale(1.05);
+      transition: 0.2s ease;
+    }
+
+    .sidebar nav ul li a.active {
+      background-color: #7aa0ff;
+      color: white;
+      font-weight: bold;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #7CE04A;
+    }
+
+    /* Main Content */
+    .dashboard-main {
+      margin-left: 240px;
+      padding: 50px;
+      padding-top: 10px;
+      flex: 1;
+      background: #f9f9f9;
+    }
+
+    /* Section Styling */
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .stat-box {
+      background: #cdf3ff;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 200px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    /* Modules */
+    .module-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .module-card {
+      background: #e0ffff;
+      padding: 20px;
+      text-decoration: none;
+      color: #000;
+      border-radius: 10px;
+      font-size: 1.2em;
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+      box-shadow: 1px 1px 5px #aaa;
+    }
+
+    .module-card:hover {
+      transform: scale(1.05);
+      background-color: #b0e6d8;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    textarea:focus {
+      outline: none;
+      border: 2px solid #1e90ff;
+      box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #32cd32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #228b22;
+      transform: scale(1.05);
+      transition: 0.2s ease-in-out;
+    }
+
+    ul {
+      font-size: 1.1em;
+    }
+
+  </style>
+  <link rel="stylesheet" href="chatbot.css">
+
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+        <div class="logo">Helping<span>Hands</span></div>
+    <nav>
+      <ul>
+        <li><a href="#welcome">🏠 Home</a></li>
+        <li><a href="#progress">📊 Progress</a></li>
+        <li><a href="#modules">📚 Modules</a></li>
+        <li><a href="#notes">📝 Notes</a></li>
+        <li><a href="#suggestions">💡 Suggestions</a></li>
+        <li><a href="index.html">🔓 Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+    <!-- Welcome Section -->
+    <section id="welcome" class="section">
+      <h1>Welcome Back, __________!</h1>
+      <h3>Child: <strong>__________</strong></h3>
+      <p>Let’s continue your learning journey 🚀</p>
+    </section>
+
+    <!-- Progress Overview -->
+    <section id="progress" class="section">
+      <h2>📊 Progress Overview</h2>
+      <div class="stats">
+        <div class="stat-box">⭐ Stars Earned: <span>28</span></div>
+        <div class="stat-box">⏱️ Time Spent: <span>3h 45m</span></div>
+        <div class="stat-box">📚 Modules Completed: <span>4</span></div>
+      </div>
+    </section>
+
+    <!-- Learning Modules -->
+    <section id="modules" class="section">
+      <h2>📖 Learning Modules</h2>
+      <div class="module-cards">
+        <a href="learning.html" class="module-card">🔤 Basics</a>
+        <a href="creative.html" class="module-card">🎨 Creative Corner</a>
+        <a href="games.html" class="module-card">🧩 Games</a>
+        <a href="story.html" class="module-card">📺 Stories</a>
+      </div>
+    </section>
+
+    <!-- Notes & Feedback -->
+    <section id="notes" class="section">
+      <h2>📝 Parent Notes</h2>
+      <textarea placeholder="Write today's feedback..."></textarea>
+      <button onclick="saveNote()">Save Note</button>
+      <div id="savedNotes"></div>
+    </section>
+
+    <!-- Suggestions -->
+    <section id="suggestions" class="section">
+      <h2>💡 Suggested Next Steps</h2>
+      <ul>
+        <li>📌 Try “Cognitive Puzzles – Level 1”</li>
+        <li>📌 Focus on Color Matching Games</li>
+        <li>📌 Include more creative tasks this week</li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    // Save Note Functions
+      function saveNote() {
+        const note = document.querySelector("textarea").value;
+        localStorage.setItem("parentNote", note);
+        displayNote();
+      }
+
+      function displayNote() {
+        const saved = localStorage.getItem("parentNote");
+        if (saved) {
+          document.getElementById("savedNotes").innerHTML =
+            "<p><strong>Saved Note:</strong> " + saved + "</p>";
+        }
+      }
+
+      // Highlight links on click + scroll
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".sidebar nav ul li a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          navLinks.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Intersection Observer for section highlight + animation
+      const observerOptions = {
+        threshold: 0.3,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          const link = document.querySelector(`.sidebar a[data-target="${id}"]`);
+
+          if (entry.isIntersecting) {
+            // Highlight sidebar link
+            navLinks.forEach((nav) => nav.classList.remove("active"));
+            if (link) link.classList.add("active");
+
+            // Animate section
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      sections.forEach((section) => observer.observe(section));
+
+      // Run on page load
+      window.onload = function () {
+        displayNote();
+        // Trigger animation on top section
+        document.querySelector("#welcome").classList.add("visible");
+      };
+
+    </script>
+
+    <script>
+    fetch("chatbot.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("chatbot-placeholder").innerHTML = data;
+    });
+    </script>
+
+    <script src="chatbot.js"></script>
+
+</body>
+</html>
