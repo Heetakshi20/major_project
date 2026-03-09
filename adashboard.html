@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HelpingHands | Dashboard</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* ====== Basic Layout ====== */
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      display: flex;
+      background-color: #fff9f9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ====== Sidebar ====== */
+    .sidebar {
+      width: 220px;
+      background-color: #cb2727; /* firebrick red */
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo span {
+      color: #ffb3b3; /* soft pink accent */
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar nav ul li a {
+      text-decoration: none;
+      font-size: 1.1em;
+      color: #ffffff;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.2s ease;
+    }
+
+    .sidebar nav ul li a:hover,
+    .sidebar nav ul li a.active {
+      background-color: #ff6b6b; /* coral red */
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* ====== Main Content ====== */
+    .dashboard-main {
+      margin-left: 240px;
+      padding: 50px;
+      padding-top: 10px;
+      flex: 1;
+      background: #fff9f9;
+    }
+
+    /* ====== Section ====== */
+    .section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      color: #000000;
+    }
+
+    h3 {
+      color: #000000;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">Helping<span>Hands</span></div>
+    <nav>
+      <ul>
+        <li><a href="#welcome" class="active">🏠 Home</a></li>
+        <li><a href="#progress">📊 Progress</a></li>
+        <li><a href="#modules">📚 Modules</a></li>
+        <li><a href="#notes">📝 Notes</a></li>
+        <li><a href="#suggestions">💡 Suggestions</a></li>
+        <li><a href="index.html">🔓 Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Dashboard Content -->
+  <main class="dashboard-main">
+    <section id="welcome" class="section">
+      <h1>Welcome Back, __________!</h1>
+      <h3>Child: <strong>__________</strong></h3>
+      <p>Let’s continue your learning journey 🚀</p>
+    </section>
+  </main>
+
+  <script>
+    // Highlight Active Link
+    const navLinks = document.querySelectorAll(".sidebar nav ul li a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        navLinks.forEach(l => l.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
